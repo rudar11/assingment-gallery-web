@@ -1,0 +1,30 @@
+import { useState, useEffect } from 'react';
+
+const useFetchPhotos = () => {
+  const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      try {
+        const response = await fetch('https://picsum.photos/v2/list?limit=100');
+        if (!response.ok) {
+          throw new Error('Failed to fetch photos');
+        }
+        const data = await response.json();
+        setPhotos(data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchPhotos();
+  }, []);
+
+  return { photos, loading, error };
+};
+
+export default useFetchPhotos;
