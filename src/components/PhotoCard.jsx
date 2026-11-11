@@ -21,7 +21,7 @@ const PhotoCard = ({ photo, isFavorite, toggleFavorite }) => {
             fill={isFavorite ? "#ef4444" : "none"}
             viewBox="0 0 24 24"
             strokeWidth={1.5}
-            stroke={isFavorite ? "#ef4444" : "currentColor"}
+            stroke={isFavorite ? "#b64141" : "currentColor"}
             className="w-7 h-7 text-gray-400 hover:text-red-500 transition-colors"
           >
             <path

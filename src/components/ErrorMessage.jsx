@@ -7,5 +7,4 @@ const ErrorMessage = ({ error }) => {
     </div>
   );
 };
-
 export default ErrorMessage;
